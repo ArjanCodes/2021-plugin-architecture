@@ -43,22 +43,22 @@ def main() -> None:
     with open("./level.json") as file:
         data = json.load(file)
 
-        # create the characters
-        characters: list[GameCharacter] = []
-        for item in data["characters"]:
-            item_copy = item.copy()
-            character_type = item_copy.pop("type")
-            if character_type == "sorcerer":
-                characters.append(Sorcerer(**item_copy))
-            elif character_type == "wizard":
-                characters.append(Wizard(**item_copy))
-            elif character_type == "witcher":
-                characters.append(Witcher(**item_copy))
+    # create the characters
+    characters: list[GameCharacter] = []
+    for item in data["characters"]:
+        item_copy = item.copy()
+        character_type = item_copy.pop("type")
+        if character_type == "sorcerer":
+            characters.append(Sorcerer(**item_copy))
+        elif character_type == "wizard":
+            characters.append(Wizard(**item_copy))
+        elif character_type == "witcher":
+            characters.append(Witcher(**item_copy))
 
-        # do something with the characters
-        for character in characters:
-            print(character, end="\t")
-            character.make_a_noise()
+    # do something with the characters
+    for character in characters:
+        print(character, end="\t")
+        character.make_a_noise()
 
 
 if __name__ == "__main__":

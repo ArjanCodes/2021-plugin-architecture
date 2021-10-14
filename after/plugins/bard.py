@@ -1,9 +1,7 @@
 """Game extension that adds a bard character."""
 
 from dataclasses import dataclass
-
-from game import factory
-
+from typing import Callable
 
 @dataclass
 class Bard:
@@ -17,5 +15,5 @@ class Bard:
         )
 
 
-def register() -> None:
-    factory.register("bard", Bard)
+def register(register_fcn: Callable) -> None:
+    register_fcn("bard", Bard)
